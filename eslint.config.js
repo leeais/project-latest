@@ -1,13 +1,13 @@
-import js from '@eslint/js'
-import globals from 'globals'
-import reactHooks from 'eslint-plugin-react-hooks'
-import reactRefresh from 'eslint-plugin-react-refresh'
-import tseslint from 'typescript-eslint'
-import { globalIgnores } from 'eslint/config'
-import jsxA11y from 'eslint-plugin-jsx-a11y'
-import security from 'eslint-plugin-security'
-import unicorn from 'eslint-plugin-unicorn'
-import prettier from 'eslint-plugin-prettier'
+import js from '@eslint/js';
+import globals from 'globals';
+import reactHooks from 'eslint-plugin-react-hooks';
+import reactRefresh from 'eslint-plugin-react-refresh';
+import tseslint from 'typescript-eslint';
+import { globalIgnores } from 'eslint/config';
+import jsxA11y from 'eslint-plugin-jsx-a11y';
+import security from 'eslint-plugin-security';
+import unicorn from 'eslint-plugin-unicorn';
+import prettier from 'eslint-plugin-prettier';
 
 export default tseslint.config([
   globalIgnores(['dist', 'node_modules']),
@@ -34,6 +34,7 @@ export default tseslint.config([
       'jsx-a11y/no-autofocus': 'warn',
       'security/detect-object-injection': 'off',
       'unicorn/prevent-abbreviations': 'off',
+      '@typescript-eslint/no-explicit-any': 'warn',
     },
   },
-])
+]);
