@@ -1,34 +1,17 @@
 import { Button, Card, Checkbox, Flex, Form, Input } from 'antd';
-import { Link, useNavigate } from 'react-router';
+import { Link } from 'react-router';
 import GuestOnlyRoute from '@/components/GuestOnlyRoute';
-import { Title } from '@/components/common/Text';
-import type { User } from '@/types/user';
-import { ROUTES } from '@/routes/utils';
+import { Title } from '@/components/_common/Text';
 import { useAuth } from '@/hooks/useAuth';
-import { defaultLoginValue, type LoginPayloadType } from '@/pages/Login/utils';
-
-const MOCK_USER: User = {
-  id: '1',
-  username: 'longnd',
-  email: 'longnd@gmail.com',
-  firstName: 'Long',
-  lastName: 'Nguyen Dang',
-  avatarUrl: 'http://localhost:5137/images/default-avatar.png',
-  updatedAt: new Date(),
-  createdAt: new Date(),
-  isActive: true,
-  roles: ['ADMIN', 'INSTRUCTOR', 'STUDENT'],
-};
+import { defaultLoginValue, MOCK_USER, type LoginPayloadType } from '@/pages/_auth/Login/utils';
 
 export default function Login() {
   const { login } = useAuth();
-  const navigate = useNavigate();
 
   function onFinish(values: LoginPayloadType) {
     try {
       console.log(values);
       login(MOCK_USER, 'mock-token');
-      navigate(ROUTES.HOME);
     } catch (error: unknown) {
       console.log(error);
     }

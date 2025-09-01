@@ -1,4 +1,4 @@
-export interface User {
+declare interface User {
   id: string;
   username: string;
   email: string;
@@ -8,5 +8,5 @@ export interface User {
   createdAt: Date;
   updatedAt: Date;
   isActive: boolean;
-  roles?: string[];
+  roles?: RoleEnum[];
 }
