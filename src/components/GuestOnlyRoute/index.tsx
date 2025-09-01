@@ -1,4 +1,4 @@
-import { useAuth } from '@/features/auth';
+import { useAuth } from '@/hooks/useAuth';
 import { ROUTES } from '@/routes/utils';
 import type { PropsWithChildren } from 'react';
 import { Navigate } from 'react-router';

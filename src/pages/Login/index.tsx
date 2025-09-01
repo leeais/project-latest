@@ -1,11 +1,11 @@
 import { Button, Card, Checkbox, Flex, Form, Input } from 'antd';
 import { Link, useNavigate } from 'react-router';
 import GuestOnlyRoute from '@/components/GuestOnlyRoute';
-import { defaultLoginValue, type LoginPayloadType } from '@/features/auth/pages/Login/utils';
 import { Title } from '@/components/common/Text';
-import { useAuth } from '@/features/auth';
 import type { User } from '@/types/user';
 import { ROUTES } from '@/routes/utils';
+import { useAuth } from '@/hooks/useAuth';
+import { defaultLoginValue, type LoginPayloadType } from '@/pages/Login/utils';
 
 const MOCK_USER: User = {
   id: '1',

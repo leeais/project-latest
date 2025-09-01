@@ -31,9 +31,4 @@ const useAuthStore = create<AuthState & AuthActions>()(
   )
 );
 
-export const useAuth = () => {
-  const { user: currentUser, isAuthenticated: isLoggedIn, login, logout } = useAuthStore();
-  return { currentUser, isLoggedIn, login, logout };
-};
-
 export default useAuthStore;
