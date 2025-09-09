@@ -1,0 +1,13 @@
+@layer theme, base, antd, components, utilities;
+
+@import './tailwind.css';
+@import './custom-ant.css';
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}

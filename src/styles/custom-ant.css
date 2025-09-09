@@ -1,0 +1,5 @@
+@layer components {
+  .ant-modal-content {
+    @apply p-0;
+  }
+}
