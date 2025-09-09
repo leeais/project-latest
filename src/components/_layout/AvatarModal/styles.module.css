@@ -1,0 +1,15 @@
+/* .root :global(.ant-modal-content) {
+  @apply p-0;
+}
+
+.root :global(.ant-modal-header) {
+  @apply mb-0 h-[48px] border-b border-primary bg-primary px-4 py-3;
+}
+
+.root :global(.ant-modal-body) {
+  @apply px-4 py-3;
+}
+
+.root :global(.ant-modal-footer) {
+  @apply mt-0 border-t border-border px-4 py-3;
+} */

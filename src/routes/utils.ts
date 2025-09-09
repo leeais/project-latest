@@ -7,6 +7,7 @@ export const ROUTES = {
 
   // Student routes
   HOME: '/',
+  PROFILE: '/profile/me',
 
   // Test routes
   TEST: '/test',
