@@ -12,6 +12,8 @@ export const ROUTES = {
   // Test routes
   TEST: '/test',
 
+  SETTINGS: '/settings',
+
   // Authentication routes
   LOGIN: '/login',
 };

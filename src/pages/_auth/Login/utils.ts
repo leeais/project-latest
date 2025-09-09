@@ -20,7 +20,7 @@ export const MOCK_USER: User = {
   username: 'longnd',
   email: 'longnd@gmail.com',
   firstName: 'Long',
-  lastName: 'Nguyen Dang',
+  lastName: 'Nguyễn Đặng',
   avatarUrl: 'http://localhost:5137/images/default-avatar.png',
   updatedAt: new Date(),
   createdAt: new Date(),

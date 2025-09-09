@@ -2,7 +2,6 @@ import { Text } from '@/components/_common/Text';
 import { ACTIVITY_STATUS_COLORS } from '@/constants/activities';
 import { useAuth } from '@/hooks/useAuth';
 import { ROUTES } from '@/routes/utils';
-import styles from './styles.module.css';
 
 import {
   DownOutlined,
@@ -11,39 +10,34 @@ import {
   SettingOutlined,
   UserOutlined,
 } from '@ant-design/icons';
-import {
-  Avatar,
-  Badge,
-  Button,
-  Divider,
-  Flex,
-  Form,
-  Input,
-  Modal,
-  Popover,
-  Space,
-  Tag,
-} from 'antd';
+import { Avatar, Badge, Button, Divider, Flex, Form, Input, Popover, Space, Tag } from 'antd';
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
-import { cn } from '@/utils/tailwinds';
+import Modal from '@/components/_common/Modal';
 
 export default function AvatarModal() {
   const { currentUser, logout } = useAuth();
   const navigate = useNavigate();
   const [passwordModalOpen, setPasswordModalOpen] = useState<boolean>(false);
 
+  function handleUpdatePassword() {
+    // TODO: Update password
+    alert('Update password');
+
+    setPasswordModalOpen(false);
+  }
+
   function content() {
     return (
-      <div className="w-xs">
-        <Flex align="center" justify="space-between">
+      <div className="w-2xs">
+        <Flex align="start" justify="space-between">
           <Space>
-            <Avatar size={42} className="bg-primary">
+            <Avatar size={38} className="bg-primary">
               {currentUser?.firstName?.at(0)}
             </Avatar>
             <Flex className="flex-col">
-              <Text className="font-semibold text-base">{`${currentUser?.lastName} ${currentUser?.firstName}`}</Text>
-              <Text className=" text-accent-foreground">{currentUser?.email}</Text>
+              <Text className="font-semibold">{`${currentUser?.lastName} ${currentUser?.firstName}`}</Text>
+              <Text className="text-sm text-accent-foreground">{currentUser?.email}</Text>
             </Flex>
           </Space>
 
@@ -53,7 +47,6 @@ export default function AvatarModal() {
         <Flex className="flex-col" gap={4}>
           <Button
             onClick={() => navigate(ROUTES.PROFILE)}
-            size="large"
             icon={<UserOutlined />}
             type="text"
             className="w-full justify-start"
@@ -62,7 +55,6 @@ export default function AvatarModal() {
           </Button>
           <Button
             onClick={() => setPasswordModalOpen(true)}
-            size="large"
             icon={<KeyOutlined />}
             type="text"
             className="w-full justify-start"
@@ -70,28 +62,26 @@ export default function AvatarModal() {
             Change password
           </Button>
           <Modal
-            className={cn(styles.root)}
             open={passwordModalOpen}
-            title={<p className="text-lg font-semibold">Update password</p>}
-            okText="Change password"
+            title="Update password"
+            okText="Update"
             onCancel={() => setPasswordModalOpen(false)}
-            onOk={() => {}}
+            onOk={handleUpdatePassword}
           >
-            <Form labelCol={{ span: 8 }} labelAlign="left">
-              <Form.Item label="Old password">
+            <Form layout="vertical" labelAlign="left" requiredMark>
+              <Form.Item className="m-0" label="Old password" required>
                 <Input.Password />
               </Form.Item>
-              <Form.Item label="New password">
+              <Form.Item className="my-2" label="New password" required>
                 <Input.Password />
               </Form.Item>
-              <Form.Item label="Confirm new password">
+              <Form.Item className="m-0" label="Confirm new password" required>
                 <Input.Password />
               </Form.Item>
             </Form>
           </Modal>
           <Button
-            onClick={() => navigate(ROUTES.PROFILE)}
-            size="large"
+            onClick={() => navigate(ROUTES.SETTINGS)}
             icon={<SettingOutlined />}
             type="text"
             className="w-full justify-start"
@@ -101,10 +91,9 @@ export default function AvatarModal() {
           <Divider className="my-2" />
           <Button
             onClick={logout}
-            size="large"
             icon={<LogoutOutlined />}
             danger
-            type="text"
+            type="link"
             className="w-full justify-start"
           >
             Logout
@@ -117,8 +106,8 @@ export default function AvatarModal() {
   return (
     <Popover content={content} trigger="click" placement="bottomRight">
       <Button
-        size="large"
         iconPosition="end"
+        size="large"
         type="primary"
         icon={<DownOutlined className="pr-2" />}
         className="rounded-full p-1 border-border"

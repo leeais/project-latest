@@ -2,11 +2,11 @@ import RolesGuard from '@/components/RolesGuard';
 import { type RoleEnum } from '@/config/roles';
 import { Button, Flex, Space } from 'antd';
 import { Outlet, useNavigate } from 'react-router';
-import SearchBox from '@/components/_layout/SearchBox';
-import AvatarModal from '@/components/_layout/AvatarModal';
+import SearchBox from '@/components/_layout/DashboardLayout/components/SearchBox';
+import AvatarModal from '@/components/_layout/DashboardLayout/components/AvatarModal';
 import { MessageOutlined, QuestionOutlined } from '@ant-design/icons';
-import NotificationModal from '@/components/_layout/NotificationModal';
-import Logo from '@/components/_layout/Logo';
+import NotificationModal from '@/components/_layout/DashboardLayout/components/NotificationModal';
+import Logo from '@/components/_layout/DashboardLayout/components/Logo';
 
 type DashboardLayoutProps = {
   role: RoleEnum;
@@ -20,11 +20,12 @@ export default function DashboardLayout({ role }: DashboardLayoutProps) {
         <Flex
           align="center"
           justify="space-between"
-          className="h-14 w-full bg-primary sticky top-0 left-0 text-primary-foreground px-6"
+          className="h-12 w-full bg-primary sticky top-0 left-0 text-primary-foreground px-6"
         >
           <Logo />
-          <SearchBox />
           <Space>
+            <SearchBox />
+
             <Space size={1}>
               <Button
                 type="text"
