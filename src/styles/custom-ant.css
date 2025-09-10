@@ -4,13 +4,13 @@
     @apply p-0 overflow-hidden;
   }
   .ant-modal-header {
-    @apply px-5 py-2 border-b border-border bg-muted text-muted-foreground;
+    @apply px-5 py-2 border-b border-border bg-accent text-accent-foreground;
   }
   .ant-modal-body {
     @apply p-5;
   }
   .ant-modal-footer {
-    @apply px-5 py-2 border-t border-border bg-muted text-muted-foreground;
+    @apply px-5 py-2 border-t border-border bg-accent text-accent-foreground;
   }
 
   /* Label */

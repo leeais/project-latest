@@ -10,6 +10,7 @@ type ModalProps = PropsWithChildren &
     title?: string;
     showCloseIcon?: boolean;
     showHeader?: boolean;
+    showFooter?: boolean;
   };
 
 export default function Modal({
@@ -18,6 +19,7 @@ export default function Modal({
   title = 'Modal',
   showCloseIcon = false,
   showHeader = true,
+  showFooter = true,
   ...props
 }: ModalProps) {
   const header = () => (
@@ -28,7 +30,13 @@ export default function Modal({
   );
 
   return (
-    <AntModal className={cn(className)} title={showHeader && header()} closeIcon={null} {...props}>
+    <AntModal
+      className={cn(className)}
+      title={showHeader && header()}
+      closeIcon={null}
+      footer={showFooter ? undefined : null}
+      {...props}
+    >
       {children}
     </AntModal>
   );

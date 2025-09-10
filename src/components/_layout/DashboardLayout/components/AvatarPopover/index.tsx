@@ -15,7 +15,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import Modal from '@/components/_common/Modal';
 
-export default function AvatarModal() {
+export default function AvatarPopover() {
   const { currentUser, logout } = useAuth();
   const navigate = useNavigate();
   const [passwordModalOpen, setPasswordModalOpen] = useState<boolean>(false);
@@ -110,10 +110,12 @@ export default function AvatarModal() {
         size="large"
         type="primary"
         icon={<DownOutlined className="pr-2" />}
-        className="rounded-full p-1 border-border"
+        className="rounded-full p-1 border-border h-9"
       >
-        <Badge dot offset={[-5, 28]} color={ACTIVITY_STATUS_COLORS.ONLINE}>
-          <Avatar className="border-border border-2">{currentUser?.firstName?.at(0)}</Avatar>
+        <Badge dot offset={[-3, 24]} color={ACTIVITY_STATUS_COLORS.ONLINE}>
+          <Avatar className="border-border border-1" size={28}>
+            {currentUser?.firstName?.at(0)}
+          </Avatar>
         </Badge>
       </Button>
     </Popover>

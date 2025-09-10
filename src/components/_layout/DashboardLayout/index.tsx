@@ -2,10 +2,10 @@ import RolesGuard from '@/components/RolesGuard';
 import { type RoleEnum } from '@/config/roles';
 import { Button, Flex, Space } from 'antd';
 import { Outlet, useNavigate } from 'react-router';
-import SearchBox from '@/components/_layout/DashboardLayout/components/SearchBox';
-import AvatarModal from '@/components/_layout/DashboardLayout/components/AvatarModal';
+import SearchBox from '@/components/_layout/DashboardLayout/components/SearchModal';
+import AvatarPopover from '@/components/_layout/DashboardLayout/components/AvatarPopover';
 import { MessageOutlined, QuestionOutlined } from '@ant-design/icons';
-import NotificationModal from '@/components/_layout/DashboardLayout/components/NotificationModal';
+import NotificationPopover from '@/components/_layout/DashboardLayout/components/NotificationPopover';
 import Logo from '@/components/_layout/DashboardLayout/components/Logo';
 
 type DashboardLayoutProps = {
@@ -20,7 +20,7 @@ export default function DashboardLayout({ role }: DashboardLayoutProps) {
         <Flex
           align="center"
           justify="space-between"
-          className="h-12 w-full bg-primary sticky top-0 left-0 text-primary-foreground px-6"
+          className="h-12 w-full bg-primary sticky top-0 left-0 text-primary-foreground px-2 md:px-4 lg:px-6"
         >
           <Logo />
           <Space>
@@ -30,20 +30,18 @@ export default function DashboardLayout({ role }: DashboardLayoutProps) {
               <Button
                 type="text"
                 shape="circle"
-                size="large"
                 icon={<MessageOutlined />}
                 className="text-primary-foreground"
               />
-              <NotificationModal />
+              <NotificationPopover />
               <Button
                 type="text"
                 shape="circle"
-                size="large"
                 icon={<QuestionOutlined />}
                 className="text-primary-foreground"
               />
             </Space>
-            <AvatarModal />
+            <AvatarPopover />
           </Space>
         </Flex>
         <Flex>
