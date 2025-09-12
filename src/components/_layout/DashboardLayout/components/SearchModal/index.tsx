@@ -30,10 +30,10 @@ export default function SearchModal() {
         onClick={() => setOpenSearchModal(true)}
       >
         <div className="flex items-center gap-4 pr-4">
-          <span className="text-xs rounded-sm p-0.5 bg-primary text-primary-foreground px-1">
+          <span className="text-xs rounded-sm p-0.5 bg-primary/90 text-primary-foreground px-1">
             Ctrl K
           </span>
-          Search
+          Tìm kiếm
         </div>
       </Button>
 
@@ -62,22 +62,22 @@ export default function SearchModal() {
         <Divider className="m-0 mb-4" />
         <div className="flex items-center gap-2">
           <div className="space-x-1">
-            <span className="py-0.5 px-1 rounded-sm text-primary-foreground bg-primary">
+            <span className="py-0.5 px-1 rounded-sm text-primary border">
               <SwapOutlined rotate={90} />
             </span>
-            <span>navigation</span>
+            <span>điều hướng</span>
           </div>
           <Divider type="vertical" />
           <div className="space-x-1">
-            <span className="py-0.5 px-1 rounded-sm text-primary-foreground bg-primary">
+            <span className="py-0.5 px-1 rounded-sm text-primary border">
               <EnterOutlined rotate={90} />
             </span>
-            <span>enter</span>
+            <span>chọn</span>
           </div>
           <Divider type="vertical" />
           <div className="space-x-1">
-            <span className="py-0.5 px-1 rounded-sm text-primary-foreground bg-primary">esc</span>
-            <span>close</span>
+            <span className="py-0.5 px-1 rounded-sm text-primary border">esc</span>
+            <span>đóng</span>
           </div>
         </div>
       </Modal>

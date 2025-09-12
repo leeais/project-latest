@@ -16,7 +16,7 @@ type ModalProps = PropsWithChildren &
 export default function Modal({
   children,
   className,
-  title = 'Modal',
+  title = 'Create',
   showCloseIcon = false,
   showHeader = true,
   showFooter = true,

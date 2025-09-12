@@ -6,15 +6,15 @@ export default function NotificationPopover() {
     return (
       <div className="w-sm">
         <header className="flex items-center justify-between">
-          <h3 className="font-medium">Notifications</h3>
+          <h3 className="font-medium">Thông báo</h3>
           <Popover
             content={
               <div className="flex flex-col gap-1">
                 <Button className="justify-start" icon={<CheckOutlined />} type="text">
-                  Mark all as read
+                  Đánh dấu tất cả là đã đọc
                 </Button>
                 <Button className="justify-start" icon={<SettingOutlined />} type="text">
-                  Settings notification
+                  Cài đặt thông báo
                 </Button>
               </div>
             }

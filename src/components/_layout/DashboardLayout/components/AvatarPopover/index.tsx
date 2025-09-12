@@ -51,7 +51,7 @@ export default function AvatarPopover() {
             type="text"
             className="w-full justify-start"
           >
-            Profile
+            Thông tin cá nhân
           </Button>
           <Button
             onClick={() => setPasswordModalOpen(true)}
@@ -59,23 +59,25 @@ export default function AvatarPopover() {
             type="text"
             className="w-full justify-start"
           >
-            Change password
+            Đổi mật khẩu
           </Button>
           <Modal
+            className="max-w-md"
             open={passwordModalOpen}
-            title="Update password"
-            okText="Update"
+            title="Cập nhật mật khẩu"
+            okText="Cập nhật"
             onCancel={() => setPasswordModalOpen(false)}
             onOk={handleUpdatePassword}
+            cancelText="Hủy"
           >
             <Form layout="vertical" labelAlign="left" requiredMark>
-              <Form.Item className="m-0" label="Old password" required>
+              <Form.Item className="m-0" label="Mật khẩu cũ" required>
                 <Input.Password />
               </Form.Item>
-              <Form.Item className="my-2" label="New password" required>
+              <Form.Item className="my-2" label="Mật khẩu mới" required>
                 <Input.Password />
               </Form.Item>
-              <Form.Item className="m-0" label="Confirm new password" required>
+              <Form.Item className="m-0" label="Nhập lại mật khẩu" required>
                 <Input.Password />
               </Form.Item>
             </Form>
@@ -86,7 +88,7 @@ export default function AvatarPopover() {
             type="text"
             className="w-full justify-start"
           >
-            Settings
+            Cài đặt
           </Button>
           <Divider className="my-2" />
           <Button
@@ -96,7 +98,7 @@ export default function AvatarPopover() {
             type="link"
             className="w-full justify-start"
           >
-            Logout
+            Đăng xuất
           </Button>
         </Flex>
       </div>
@@ -106,11 +108,11 @@ export default function AvatarPopover() {
   return (
     <Popover content={content} trigger="click" placement="bottomRight">
       <Button
+        className="rounded-full bg-primary/90 text-primary-foreground p-1 border-border h-9"
         iconPosition="end"
         size="large"
-        type="primary"
+        type="default"
         icon={<DownOutlined className="pr-2" />}
-        className="rounded-full p-1 border-border h-9"
       >
         <Badge dot offset={[-3, 24]} color={ACTIVITY_STATUS_COLORS.ONLINE}>
           <Avatar className="border-border border-1" size={28}>

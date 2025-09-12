@@ -8,7 +8,7 @@ export default function Logo() {
       <Link to={ROUTES.HOME}>
         <img className="size-9 object-contain" src={IMAGES.logo} alt="logo" />
       </Link>
-      <span className="text-primary-foreground font-serif text-xl tracking-tighter italic select-none">
+      <span className="text-[#FF0000] font-serif font-medium text-xl italic select-none text-shadow-accent tracking-tighter text-shadow-sm">
         Đại học Sao Đỏ
       </span>
     </div>
