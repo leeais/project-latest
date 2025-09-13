@@ -35,7 +35,7 @@ export const ADMIN_SIDEBAR_LINKS: LinkType[] = [
   {
     role: '*',
     label: 'Danh mục',
-    to: ROUTES.SETTINGS,
+    to: ROUTES.ADMIN_CATEGORIES,
     icon: AppstoreOutlined,
   },
   {

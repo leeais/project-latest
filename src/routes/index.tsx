@@ -1,13 +1,26 @@
 import { createBrowserRouter, RouterProvider } from 'react-router';
 import { ROUTES } from '@/routes/utils';
-import DashboardLayout from '@/components/_layout/DashboardLayout';
-import StudentLayout from '@/components/_layout/StudentLayout';
-import Test from '@/pages/Test';
-import Login from '@/pages/_auth/Login';
-import AdminDashboard from '@/pages/_admin/AdminDashboard';
 import { ROLES } from '@/config/roles';
-import StaffDashboard from '@/pages/_staffs/StaffDashboard';
-import Home from '@/pages/_students/Home';
+import { lazy, Suspense } from 'react';
+
+// layouts
+const DashboardLayout = lazy(() => import('@/components/_layout/DashboardLayout'));
+const StudentLayout = lazy(() => import('@/components/_layout/StudentLayout'));
+
+// pages
+const Test = lazy(() => import('@/pages/Test'));
+const ScreenLoader = lazy(() => import('@/pages/ScreenLoader'));
+const NotFound = lazy(() => import('@/pages/NotFound'));
+
+const Login = lazy(() => import('@/pages/_auth/Login'));
+
+const AdminDashboard = lazy(() => import('@/pages/_admin/AdminDashboard'));
+const Categories = lazy(() => import('@/pages/_admin/Categories'));
+const CategoriesProcedures = lazy(() => import('@/pages/_admin/CategoriesProcedures'));
+
+const StaffDashboard = lazy(() => import('@/pages/_staffs/StaffDashboard'));
+
+const Home = lazy(() => import('@/pages/_students/Home'));
 
 const router = createBrowserRouter([
   // Test routes
@@ -30,12 +43,12 @@ const router = createBrowserRouter([
         element: <AdminDashboard />,
       },
       {
-        path: '1',
-        element: <div>Admin 1</div>,
+        path: ROUTES.ADMIN_CATEGORIES,
+        element: <Categories />,
       },
       {
-        path: '2',
-        element: <div>Admin 2</div>,
+        path: ROUTES.ADMIN_CATEGORIES_PROCEDURES,
+        element: <CategoriesProcedures />,
       },
     ],
   },
@@ -67,8 +80,16 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: '*',
+    element: <NotFound />,
+  },
 ]);
 
 export default function AppRouter() {
-  return <RouterProvider router={router} />;
+  return (
+    <Suspense fallback={<ScreenLoader />}>
+      <RouterProvider router={router} />
+    </Suspense>
+  );
 }

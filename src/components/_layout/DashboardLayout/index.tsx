@@ -17,11 +17,7 @@ export default function DashboardLayout({ role }: DashboardLayoutProps) {
   return (
     <RolesGuard hasRoles={[role]}>
       <Flex className="w-full h-screen flex-col min-h-[600px]">
-        <Flex
-          align="center"
-          justify="space-between"
-          className="h-12 w-full bg-primary/90 sticky top-0 left-0 text-primary-foreground px-2 md:px-4 lg:px-6"
-        >
+        <header className="h-12 flex items-center justify-between shrink-0 w-full bg-primary sticky top-0 left-0 text-primary-foreground px-6">
           <Logo />
           <Space>
             <SearchBox />
@@ -43,14 +39,19 @@ export default function DashboardLayout({ role }: DashboardLayoutProps) {
             </Space>
             <AvatarPopover />
           </Space>
-        </Flex>
+        </header>
+
         <Flex>
           <Sidebar />
+
           <Flex className="flex-1 flex-col">
-            <div className="h-9 w-full border-b">
+            <div className="h-9 w-full border-b sticky right-0 top-12 bg-background">
               <Breadcrumb />
             </div>
-            <Outlet />
+
+            <main className="bg-muted min-h-[calc(100vh-21*4px)]">
+              <Outlet />
+            </main>
           </Flex>
         </Flex>
       </Flex>

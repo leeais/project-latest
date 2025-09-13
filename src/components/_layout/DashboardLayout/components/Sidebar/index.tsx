@@ -1,6 +1,6 @@
 import { ADMIN_SIDEBAR_LINKS } from '@/constants/links';
 import { cn } from '@/utils/tailwinds';
-import { DoubleLeftOutlined } from '@ant-design/icons';
+import { DoubleRightOutlined } from '@ant-design/icons';
 import { Button, Tooltip } from 'antd';
 import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router';
@@ -42,17 +42,17 @@ export default function Sidebar() {
           </span>
           <Button
             className={cn('transition-transform duration-700 ease-in-out', {
-              'rotate-180': expandSidebar,
+              '-rotate-180': expandSidebar,
             })}
             type="text"
-            icon={<DoubleLeftOutlined />}
+            icon={<DoubleRightOutlined />}
             onClick={() => setExpandSidebar((prev) => !prev)}
           />
         </header>
 
         <div className="size-full overflow-x-hidden overflow-auto flex flex-col">
           {ADMIN_SIDEBAR_LINKS.map(({ label, to, icon: Icon }, index) => {
-            const isActive = pathname === to;
+            const isActive = to === '/admin' ? pathname === to : pathname.includes(to);
 
             return (
               <Tooltip key={index} title={expandSidebar ? null : label} placement="right">
